@@ -1,5 +1,8 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {AuthenticationService} from "../../shared/services/authentication.service";
+import {Router} from "@angular/router";
+import {BaToastNotificationService} from "../../theme/services/baToasts/baToasts.service";
 
 @Component({
   selector: 'login',
@@ -14,7 +17,8 @@ export class Login {
   public password:AbstractControl;
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder) {
+  constructor(fb:FormBuilder, private authService: AuthenticationService, private router: Router
+              ,private toastService: BaToastNotificationService) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -28,7 +32,23 @@ export class Login {
     this.submitted = true;
     if (this.form.valid) {
       // your code goes here
-      // console.log(values);
+       console.log(values);
+      this.authService.login(values['email'], values['password'])
+          .subscribe(result => {
+            if (result === true) {
+              //login succesful
+              this.router.navigate(['/']);
+              this.toastService.showToast("Succesful login!");
+            }
+          },
+          (error) => {
+            console.log("dis error");
+            if (error.json() && error.json().error) {
+              this.toastService.showToast(error.json().error);
+            } else {
+              this.toastService.showToast("An unexpected error has occured");
+            }
+          })
     }
   }
 }

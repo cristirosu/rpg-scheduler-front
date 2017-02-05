@@ -5,23 +5,28 @@ import { NgaModule } from '../../theme/nga.module';
 
 import { routing }       from './charts.routing';
 import { Charts } from './charts.component';
-import { ChartistJs } from './components/chartistJs/chartistJs.component';
 import { ChartistJsService } from './components/chartistJs/chartistJs.service';
+import {BarChartDemoComponent} from "./components/chartistJs/chart.component";
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {ChartService} from "../../shared/services/chart.service";
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ChartsModule,
     NgaModule,
     routing
   ],
   declarations: [
     Charts,
-    ChartistJs
+    BarChartDemoComponent
   ],
   providers: [
-    ChartistJsService
+    ChartistJsService,
+    ChartService
   ]
 })
-export default class ChartsModule {}
+export default class CustomChartsModule {}

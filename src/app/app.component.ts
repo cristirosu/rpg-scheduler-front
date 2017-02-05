@@ -9,6 +9,7 @@ import { BaMenuService } from './theme';
 import {ComponentsHelper } from 'ng2-bootstrap';
 
 import { MENU } from './app.menu';
+import {ToastsManager} from "ng2-toastr/ng2-toastr";
 /*
  * App Component
  * Top Level Component
@@ -22,6 +23,7 @@ import { MENU } from './app.menu';
       <div class="additional-bg"></div>
       <router-outlet></router-outlet>
     </main>
+    <span defaultOverlayTarget></span>
   `
 })
 export class App {
@@ -33,7 +35,8 @@ export class App {
               private _spinner: BaThemeSpinner,
               private _config: BaThemeConfig,
               private _menuService: BaMenuService,
-              private viewContainerRef: ViewContainerRef) {
+              private viewContainerRef: ViewContainerRef,
+              public toastr: ToastsManager) {
 
     this._menuService.updateMenuByRoutes(<Routes>MENU);
 
@@ -44,6 +47,8 @@ export class App {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+
+    this.toastr.setRootViewContainerRef(viewContainerRef);
   }
 
   public ngAfterViewInit(): void {

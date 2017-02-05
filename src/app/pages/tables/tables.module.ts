@@ -16,6 +16,7 @@ import { HoverTable } from './components/basicTables/components/hoverTable';
 import { CondensedTable } from './components/basicTables/components/condensedTable';
 import { ContextualTable } from './components/basicTables/components/contextualTable';
 import { SmartTablesService } from './components/smartTables/smartTables.service';
+import {ChartService} from "../../shared/services/chart.service";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { SmartTablesService } from './components/smartTables/smartTables.service
   ],
   providers: [
     BasicTablesService,
-    SmartTablesService
+    SmartTablesService,
+    ChartService
   ]
 })
 export default class TablesModule {}

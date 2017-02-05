@@ -2,7 +2,8 @@
   <div class="feed-message" *ngFor="let message of feed" (click)="expandMessage(message)">
     <div class="message-icon" *ngIf="message.type == 'text-message'">
       <img class="photo-icon" src="{{ ( message.author | baProfilePicture ) }}">
-    </div>
+    </div>:))))
+    
     <div class="message-icon" *ngIf="message.type != 'text-message'">
       <img class="photo-icon" src="{{ ( message.author | baProfilePicture ) }}">
       <span class="sub-photo-icon" [ngClass]="message.type"></span>

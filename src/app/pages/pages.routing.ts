@@ -1,5 +1,6 @@
 import { Routes, RouterModule }  from '@angular/router';
 import { Pages } from './pages.component';
+import {FriendDetailsComponennt} from "./friends-details/friend.details.component";
 // noinspection TypeScriptValidateTypes
 const routes: Routes = [
   {
@@ -22,9 +23,15 @@ const routes: Routes = [
       { path: 'ui', loadChildren: () => System.import('./ui/ui.module') },
       { path: 'forms', loadChildren: () => System.import('./forms/forms.module') },
       { path: 'tables', loadChildren: () => System.import('./tables/tables.module') },
-      { path: 'maps', loadChildren: () => System.import('./maps/maps.module') }
+      { path: 'maps', loadChildren: () => System.import('./maps/maps.module') },
+      { path: 'friends', loadChildren: () => System.import('./friends/friends.module') },
+      { path: 'friends/:id',  loadChildren: () => System.import('./friends-details/friend.details.module') },
+      { path: 'achievements',  loadChildren: () => System.import('./achievements/achievements.module') },
+      { path: 'new',  loadChildren: () => System.import('./achievements/achievements.module.ts') },
+      { path: 'settings',  loadChildren: () => System.import('./settings/settings.module') }
     ]
   }
 ];
+
 
 export const routing = RouterModule.forChild(routes);

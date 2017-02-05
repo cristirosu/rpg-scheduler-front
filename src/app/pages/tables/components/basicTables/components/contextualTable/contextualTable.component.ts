@@ -6,6 +6,10 @@ import {Component} from '@angular/core';
 })
 export class ContextualTable {
 
+  private data: any = {
+    test: 1234
+  };
+
   constructor() {
   }
 }

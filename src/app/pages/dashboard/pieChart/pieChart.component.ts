@@ -1,8 +1,10 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Input, SimpleChanges, OnChanges} from '@angular/core';
 
 import {PieChartService} from './pieChart.service';
 
 import './pieChart.loader.ts';
+import {Task} from "../../../models/task.model";
+import {User} from "../../../models/user.model";
 
 @Component({
   selector: 'pie-chart',
@@ -11,21 +13,46 @@ import './pieChart.loader.ts';
   template: require('./pieChart.html')
 })
 // TODO: move easypiechart to component
-export class PieChart {
+export class PieChart implements OnChanges{
 
-  public charts: Array<Object>;
+  @Input()
+  tasks: Array<Task>;
+  @Input()
+  user: User;
+  public chartData: Array<Object>;
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
-    this.charts = this._pieChartService.getData();
+    this.chartData = this._pieChartService.getData();
   }
 
   ngAfterViewInit() {
     if (!this._init) {
       this._loadPieCharts();
-      this._updatePieCharts();
       this._init = true;
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    let finishedTasks = 0;
+    if(changes['tasks']) {
+      let currentTasks = changes['tasks'].currentValue;
+      for (let i = 0; i < currentTasks.length; i++) {
+        if (currentTasks[i].isFinished === true) finishedTasks++;
+      }
+      if(this.user)
+        this.chartData[0]['stats'] = this.user.firstName + " " + this.user.lastName;
+      this.chartData[1]['stats'] = currentTasks.length;
+      this.chartData[2]['stats'] = finishedTasks;
+      this.chartData[3]['stats'] = currentTasks.length - finishedTasks;
+      console.log(currentTasks);
+    }
+
+  }
+
+  print(){
+      console.log(this.tasks);
   }
 
   private _loadPieCharts() {

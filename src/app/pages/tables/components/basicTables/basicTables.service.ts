@@ -538,21 +538,23 @@ export class BasicTablesService {
     }
   ];
 
-  metricsTableData = [
+
+
+  metricsTableData2 = [
     {
       image: 'app/browsers/chrome.svg',
-      browser: 'Google Chrome',
+      browser: 'Google Chrome245',
       visits: '10,392',
       isVisitsUp: true,
       purchases: '4,214',
       isPurchasesUp: true,
-      percent: '45%',
+      percent: '4fasfa5%',
       isPercentUp: true
     },
     {
       image: 'app/browsers/firefox.svg',
       browser: 'Mozilla Firefox',
-      visits: '7,873',
+      visits: '7,8fasfas73',
       isVisitsUp: true,
       purchases: '3,031',
       isPurchasesUp: false,

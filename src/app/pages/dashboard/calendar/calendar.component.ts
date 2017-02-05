@@ -16,9 +16,26 @@ export class Calendar {
   constructor(private _calendarService:CalendarService) {
     this.calendarConfiguration = this._calendarService.getData();
     this.calendarConfiguration.select = (start, end) => this._onSelect(start, end);
+    this.calendarConfiguration.eventDragged = (event, delta, revertFunc, jsEvent, ui, view) => {
+
+      alert(event.title + " was dropped on " + event.start.format());
+
+      if (!confirm("Are you sure about this change?")) {
+        revertFunc();
+      }
+
+    }
+  }
+
+  getNewData(){
+    console.log(":)):((");
+    jQuery(this._calendar).fullCalendar('removeEvents');
+
+    console.log("here a");
   }
 
   public onCalendarReady(calendar):void {
+    console.log("here b");
     this._calendar = calendar;
   }
 

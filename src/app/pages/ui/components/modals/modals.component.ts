@@ -7,13 +7,6 @@ import { ModalDirective } from 'ng2-bootstrap';
   template: require('./modals.html')
 })
 export class Modals {
-  @ViewChild('childModal') childModal: ModalDirective;
 
-  showChildModal(): void {
-    this.childModal.show();
-  }
 
-  hideChildModal(): void {
-    this.childModal.hide();
-  }
 }
