@@ -4,7 +4,7 @@ import {ChartService} from "../../../../shared/services/chart.service";
 
 @Component({
   selector: 'bar-chart',
-  templateUrl: './bar-chart.html'
+  templateUrl: 'bar-chart.html'
 })
 export class BarChartDemoComponent implements OnInit{
   public barChartOptions:any = {

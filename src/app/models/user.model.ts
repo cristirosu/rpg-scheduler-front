@@ -11,4 +11,7 @@ export class User {
   createdAt: Date;
   lastLogin: Date;
   character: Character;
+  picture: string;
+  receivesEmails: boolean;
+  receivesToasts: boolean;
 }

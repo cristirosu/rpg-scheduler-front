@@ -4,7 +4,7 @@ import {AchievementService} from "../../shared/services/achievement.service";
 
 @Component({
   selector: 'achievements',
-  templateUrl: './achievements.component.html'
+  templateUrl: 'achievements.component.html'
 })
 export class AchievementsComponent implements OnInit {
   achievements: Achievement;

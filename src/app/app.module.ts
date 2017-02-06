@@ -40,6 +40,7 @@ import {UserService} from "./shared/services/user.service";
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import {FriendDetailsComponennt} from "./pages/friends-details/friend.details.component";
 import {FriendDetailsModal} from "./pages/friends/friend.modal.component";
+import {SettingsComponent} from "./pages/settings/settings.component";
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
@@ -81,7 +82,7 @@ type StoreType = {
     ModalModule.forRoot(),
     BootstrapModalModule,
     SelectModule,
-    ToastModule,
+    ToastModule.forRoot(),
     Ng2Bs3ModalModule,
 
     routing,

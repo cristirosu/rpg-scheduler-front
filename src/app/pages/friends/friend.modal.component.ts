@@ -20,7 +20,7 @@ export class FriendsModalContext extends BSModalContext {
  */
 @Component({
     selector: 'modal-content',
-    templateUrl: './friend.modal.component.html'
+    templateUrl: 'friend.modal.component.html'
 })
 export class FriendDetailsModal implements CloseGuard, ModalComponent<FriendsModalContext>, OnInit {
     context: FriendsModalContext;

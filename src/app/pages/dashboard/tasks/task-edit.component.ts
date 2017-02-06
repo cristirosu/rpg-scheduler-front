@@ -18,7 +18,7 @@ export class CustomModalContext extends BSModalContext {
 @Component({
     selector: 'modal-content',
     styleUrls: ['./task-edit.component.css'],
-    templateUrl: './task-edit.component.html'
+    templateUrl: 'task-edit.component.html'
 })
 export class CustomModal implements CloseGuard, ModalComponent<CustomModalContext>, OnInit {
     context: CustomModalContext;
