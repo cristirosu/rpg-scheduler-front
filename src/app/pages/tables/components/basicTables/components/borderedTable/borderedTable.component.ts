@@ -11,7 +11,6 @@ export class BorderedTable {
   metricsTableData:Array<any>;
 
   constructor(private _basicTablesService: BasicTablesService) {
-    this.metricsTableData = _basicTablesService.metricsTableData;
   }
 
   public test(){

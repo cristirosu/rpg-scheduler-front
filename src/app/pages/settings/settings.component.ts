@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'new',
-  template: `<strong>My page content here</strong>`
+  templateUrl: './settings.html'
 })
 export class SettingsComponent {
   constructor() {}

@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
 import {GlobalState} from '../../../global.state';
+import {UserService} from "../../../shared/services/user.service";
 
 @Component({
   selector: 'ba-page-top',
@@ -12,11 +13,16 @@ export class BaPageTop {
 
   public isScrolled:boolean = false;
   public isMenuCollapsed:boolean = false;
+  public profilePicture = "";
 
-  constructor(private _state:GlobalState) {
+  constructor(private _state:GlobalState, private userService: UserService) {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+  }
+
+  ngOnInit(){
+    this.getUserImg();
   }
 
   public toggleMenu() {
@@ -27,5 +33,14 @@ export class BaPageTop {
 
   public scrolledChanged(isScrolled) {
     this.isScrolled = isScrolled;
+  }
+
+  getUserImg() {
+    this.userService.getUser()
+      .subscribe(
+        user => {
+          this.profilePicture = user.character.picture;
+        },
+      );
   }
 }

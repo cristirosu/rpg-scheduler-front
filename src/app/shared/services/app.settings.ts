@@ -1,7 +1,7 @@
 import {Headers, RequestOptions} from "@angular/http";
 
 export class AppSettings {
- 
+
  public static get API_OPTIONS(): RequestOptions {
       let headers = new Headers({ 'Content-Type': 'application/json' }),
           options = new RequestOptions({ headers: headers});
