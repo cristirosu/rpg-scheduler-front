@@ -4,10 +4,12 @@ import {Injectable} from '@angular/core';
 import './baToastNotification.loader.ts';
 // loading configuration class/interface
 import {ToastConfig} from './models/ToastConfig';
+declare let jQuery : any;
 
 @Injectable()
 export class BaToastNotificationService {
   private _defaultConfig:ToastConfig;
+
 
   // setting default configuration
   constructor() {

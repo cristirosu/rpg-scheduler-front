@@ -15,25 +15,37 @@ export class ChartService {
   constructor(private _http: Http, private authservice: AuthenticationService) { }
 
   getBarChartData() {
-    return this._http.get(AppSettings.API_URL + '/chart/bar')
+    let headers = new Headers( { 'Authorization': this.authservice.token  });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(AppSettings.API_URL + '/chart/bar', options)
       .map((response: Response) => <any[]>response.json())
       .catch(this.handleError);
   }
 
   getLineChartData() {
-    return this._http.get(AppSettings.API_URL + '/chart/line')
+    let headers = new Headers( { 'Authorization': this.authservice.token  });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(AppSettings.API_URL + '/chart/line', options)
       .map((response: Response) => <any[]>response.json())
       .catch(this.handleError);
   }
 
   getPieChartData() {
-    return this._http.get(AppSettings.API_URL + '/chart/pie')
+    let headers = new Headers( { 'Authorization': this.authservice.token  });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(AppSettings.API_URL + '/chart/pie', options)
       .map((response: Response) => <any[]>response.json())
       .catch(this.handleError);
   }
 
   getDoughnutChartData() {
-    return this._http.get(AppSettings.API_URL + '/chart/doughnut')
+    let headers = new Headers( { 'Authorization': this.authservice.token  });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(AppSettings.API_URL + '/chart/doughnut', options)
       .map((response: Response) => <any[]>response.json())
       .catch(this.handleError);
   }
@@ -43,6 +55,15 @@ export class ChartService {
     let options = new RequestOptions({ headers: headers });
 
     return this._http.get(AppSettings.API_URL + '/friends/scoreBoard', options)
+      .map((response: Response) => <any[]>response.json())
+      .catch(this.handleError);
+  }
+
+  getNotifications() {
+    let headers = new Headers( { 'Authorization': this.authservice.token  });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(AppSettings.API_URL + '/alerts/notifications', options)
       .map((response: Response) => <any[]>response.json())
       .catch(this.handleError);
   }

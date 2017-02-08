@@ -43,39 +43,19 @@ export class BaMsgCenterService {
 
   private _messages = [
     {
-      name: 'Nasta',
-      text: 'After you get up and running, you can place Font Awesome icons just about...',
-      time: '1 min ago'
-    },
-    {
-      name: 'Vlad',
-      text: 'You asked, Font Awesome delivers with 40 shiny new icons in version 4.2.',
-      time: '2 hrs ago'
+      name: 'Kostya',
+      text: 'Want to request new features? Email us at rpg@scheduler.com!',
+      time: '5 hours ago'
     },
     {
       name: 'Kostya',
-      text: 'Want to request new icons? Here\'s how. Need vectors or want to use on the...',
-      time: '10 hrs ago'
-    },
-    {
-      name: 'Andrey',
-      text: 'Explore your passions and discover new ones by getting involved. Stretch your...',
-      time: '1 day ago'
-    },
-    {
-      name: 'Nasta',
-      text: 'Get to know who we are - from the inside out. From our history and culture, to the...',
-      time: '1 day ago'
+      text: 'Notification engine is finally here! Go to settings to enable them!',
+      time: '3 days ago'
     },
     {
       name: 'Kostya',
-      text: 'Need some support to reach your goals? Apply for scholarships across a variety of...',
-      time: '2 days ago'
-    },
-    {
-      name: 'Vlad',
-      text: 'Wrap the dropdown\'s trigger and the dropdown menu within .dropdown, or...',
-      time: '1 week ago'
+      text: 'Celebrate 1 year anniversary with us! Receive bonus xp for every task!',
+      time: '2 weeks ago'
     }
   ];
 

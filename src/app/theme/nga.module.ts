@@ -54,6 +54,7 @@ import {
   EmailValidator,
   EqualPasswordsValidator
 } from './validators';
+import {ChartService} from "../shared/services/chart.service";
 
 const NGA_COMPONENTS = [
   BaAmChart,
@@ -124,7 +125,8 @@ export class NgaModule {
         BaThemeConfigProvider,
         BaThemeConfig,
         ...NGA_VALIDATORS,
-        ...NGA_SERVICES
+        ...NGA_SERVICES,
+        ChartService
       ],
     };
   }
