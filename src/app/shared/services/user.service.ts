@@ -41,7 +41,7 @@ export class UserService {
       let options = new RequestOptions({ headers: headers });
 
       return <Observable<User>>this._http
-        .put(AppSettings.API_URL + '/users/', user, options)
+        .put(AppSettings.API_URL + '/users', user, options)
         .map((response: Response) => <User>response.json())
         .catch(this.handleError);
     }

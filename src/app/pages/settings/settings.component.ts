@@ -45,11 +45,11 @@ export class SettingsComponent {
   update(){
     this.userService.updateUser(this.getUser())
       .subscribe(
-        data => {
+        () => {
           this.toastService.showToast("Succefully updated details");
         },
-        error => console.log(error)
-      );
+        error =>  this.toastService.showToast("Succefully updated details")
+  );
   }
 
   private getUser() : User {
