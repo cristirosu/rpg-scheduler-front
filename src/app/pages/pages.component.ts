@@ -13,7 +13,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
       </div>
     </div>
     <footer class="al-footer clearfix">
-      <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
       <div class="al-footer-main clearfix">
         <ul class="al-share clearfix">
         </ul>

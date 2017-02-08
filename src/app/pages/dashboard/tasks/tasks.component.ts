@@ -139,6 +139,12 @@ export class TasksComponent implements OnInit {
     this.socketService.subscribe(this.user.id, function (greeting : any) {
       console.log("recieved a message");
       console.log(greeting);
+      if(greeting.body.indexOf("Late task") != -1){
+        console.log("Contains late task!");
+        var health = greeting.body.substr(greeting.body.lastIndexOf(":")+1);
+        console.log("health == " +health);
+        self.user.character.health = +health;
+      }
       self.toastsrv.showToast(greeting.body);
       console.log("-=->>>>>>>>>>>>>>>>>>>>>>")
     });
