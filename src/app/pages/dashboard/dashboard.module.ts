@@ -36,7 +36,7 @@ import {UserService} from "../../shared/services/user.service";
 import {SelectModule} from "ng2-select/index";
 import {CustomModal} from "./tasks/task-edit.component";
 
-
+import {Angular2FontawesomeModule} from "angular2-fontawesome/angular2-fontawesome";
 @NgModule({
   imports: [
     CommonModule,
@@ -45,6 +45,7 @@ import {CustomModal} from "./tasks/task-edit.component";
     HttpModule,
     ChartsModule,
     SelectModule,
+    Angular2FontawesomeModule,
     routing
   ],
   declarations: [

@@ -32,7 +32,7 @@ export class TasksComponent implements OnInit {
   showFilters: boolean = false;
   errorMessage: string;
   static accountNotifications: boolean = false;
-
+  calendarOrTasks: boolean = true;
   public calendarConfiguration:any;
   private _calendar:Object;
 
@@ -58,6 +58,10 @@ export class TasksComponent implements OnInit {
       }
 
     }
+  }
+
+  private calendarOrTasksSwitch(){
+    this.calendarOrTasks = !this.calendarOrTasks;
   }
 
   private _onSelect(start, end):void {
@@ -192,8 +196,8 @@ export class TasksComponent implements OnInit {
 
   openSaveTaskWindow(task: Task) {
     return this._modal.open(CustomModal, overlayConfigFactory({ task: task }, BSModalContext))
-      .then(dialog => {console.log(dialog.result); return dialog.result})
-      .then(() => this.getTasks());
+      .then(dialog => {console.log(dialog.result); return dialog.result}, () => {})
+      .then(() => this.getTasks(), () => {});
   }
 
 

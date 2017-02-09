@@ -19,6 +19,9 @@ export class BaPageTop {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+    this._state.subscribe('user.update', (data) => {
+      this.getUserImg();
+    });
   }
 
   ngOnInit(){

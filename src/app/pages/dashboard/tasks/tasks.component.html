@@ -37,16 +37,21 @@
     </div>
 </div>
 
-<div class="row">
+<button type="button" class="btn btn-default btn-sm" (click)="calendarOrTasks = !calendarOrTasks">
+    <fa [name]="'eye'"></fa> {{calendarOrTasks ? 'calendar view' : 'table view'}}
+</button>
+
+<div class="row" *ngIf="calendarOrTasks">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <b>Tasks</b>
-
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-default btn-sm" (click)="showFilters = !showFilters">
-                </button>
+                    <fa [name]="'filter'"></fa> {{showFilters ? 'hide filters' : 'show filters'}}
+                    </button>
                     <button type="button" class="btn btn-default btn-sm" (click)="openSaveTaskWindow()">
+                    <fa [name]="'plus'"></fa> add task
                 </button>
                 </div>
 
@@ -84,6 +89,7 @@
                             reset
                         </button>
                             <button class="btn btn-primary" (click)="getTasks()">
+                            <fa [name]="'filter'"></fa> search
                         </button>
                         </div>
                     </div>
@@ -107,13 +113,16 @@
                         <td>{{task.category.name}}</td>
                         <td>{{task.dueDate}}</td>
                         <td>
-                            <div class="btn-group pull-right">
-                                <button class="btn btn-default btn-sm" (click)="updateTaskStatus(task)">
-                                  {{task.isFinished}}
+                           <div class="btn-group pull-right">
+                                <button class="btn btn-default btn-sm" (click)="updateTaskStatus(task)"> 
+                                    <fa *ngIf="task.isFinished" [name]="'times'" class="text-danger"></fa>
+                                    <fa *ngIf="!task.isFinished" [name]="'check'" class="text-success"></fa>
                                 </button>
                                 <button class="btn btn-default btn-sm" (click)="openSaveTaskWindow(task)">
+                                    <fa [name]="'edit'" class="text-primary"></fa>
                                 </button>
                                 <button class="btn btn-default btn-sm" (click)="deleteTask(task)">
+                                    <fa [name]="'trash'" class="text-danger"></fa>
                                 </button>
                             </div>
                         </td>
@@ -128,14 +137,17 @@
     </div>
 
 </div>
+
+<div *ngIf="!calendarOrTasks">
 <ba-card class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" title="Calendar"
          baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
   <ba-full-calendar [baFullCalendarConfiguration]="calendarConfiguration" baFullCalendarClass="blurCalendar" (onCalendarReady)="onCalendarReady($event)"></ba-full-calendar>
 </ba-card>
 <br>
+</div>
 
 <style>
-    .progress {
+    /*.progress {
         position: relative;
     }
 
@@ -144,5 +156,5 @@
         display: block;
         width: 100%;
         color: black;
-    }
+    }*/
 </style>

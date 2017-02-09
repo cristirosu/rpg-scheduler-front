@@ -41,6 +41,12 @@ import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import {FriendDetailsComponennt} from "./pages/friends-details/friend.details.component";
 import {FriendDetailsModal} from "./pages/friends/friend.modal.component";
 import {SettingsComponent} from "./pages/settings/settings.component";
+
+import * as moment_ from 'moment';
+// const moment:moment.MomentStatic = (<any>moment_)['default'] || moment_;
+
+// import {MomentModule} from 'angular2-moment/module';
+
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
@@ -69,6 +75,7 @@ type StoreType = {
     RouterModule,
     FormsModule,
     ChartsModule,
+    // MomentModule,
     ReactiveFormsModule,
     NgaModule.forRoot(),
     PagesModule,
