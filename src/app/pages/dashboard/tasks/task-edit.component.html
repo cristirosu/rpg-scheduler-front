@@ -1,11 +1,11 @@
-<div style='background-color: red' class="container-fluid custom-modal-container">
-    <div class="row custom-modal-header">
+<div style='background-color:  #636363; padding-top: 0; color: #ffffff;' class="container-fluid custom-modal-container">
+    <div class="row modal-header">
         <div class="col-sm-12">
-            <h1 *ngIf="task">Edit task</h1>
-            <h1 *ngIf="!task">Create task</h1>
+            <h4 class="modal-title" *ngIf="task">Edit task</h4>
+            <h4 class="modal-title" *ngIf="!task">Create task</h4>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top: 15px;">
         <div class="col-md-12">
             <div class="form-group">
                 <label>Task name</label>
@@ -50,10 +50,10 @@
         </div>
     </div>
 </div>
-<div class="modal-footer">
+<div class="modal-footer" style='background-color:  #636363'>
     <div class="btn-group">
         <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
-        <button type="button" class="btn btn-primary" (click)="save()">
+        <button type="button" class="btn btn-default" (click)="save()">
             <span *ngIf="task">Save</span>
             <span *ngIf="!task">Add</span>
         </button>
