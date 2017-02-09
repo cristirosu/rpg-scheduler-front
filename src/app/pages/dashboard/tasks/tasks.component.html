@@ -41,7 +41,7 @@
     <fa [name]="'eye'"></fa> {{calendarOrTasks ? 'calendar view' : 'table view'}}
 </button>
 
-<div class="row" *ngIf="calendarOrTasks">
+<div class="row" [hidden]="!calendarOrTasks">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -138,8 +138,8 @@
 
 </div>
 
-<div *ngIf="!calendarOrTasks">
-<ba-card class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" title="Calendar"
+<div class="row" [hidden]="calendarOrTasks">
+<ba-card class="col-md-12" title="Calendar"
          baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
   <ba-full-calendar [baFullCalendarConfiguration]="calendarConfiguration" baFullCalendarClass="blurCalendar" (onCalendarReady)="onCalendarReady($event)"></ba-full-calendar>
 </ba-card>
