@@ -31,6 +31,7 @@ const routes: Routes = [
       { path: 'friends/:id',  loadChildren: () => System.import('./friends-details/friend.details.module') },
       { path: 'achievements',  loadChildren: () => System.import('./achievements/achievements.module') },
       { path: 'new',  loadChildren: () => System.import('./achievements/achievements.module.ts') },
+      { path: 'sync',  loadChildren: () => System.import('./sync/sync.module') },
       { path: 'settings',  loadChildren: () => System.import('./settings/settings.module') }
     ]
   }

@@ -35,7 +35,8 @@ export class CustomModal implements CloseGuard, ModalComponent<CustomModalContex
         private _taskService: TaskService
     ) {
         this.context = dialog.context;
-        
+        if (dialog.context.task) {this.task = dialog.context.task;  };
+
         this.difficulties = [];
         // init difficulties
         for (let i = 1; i <= 10; i++){
@@ -43,7 +44,7 @@ export class CustomModal implements CloseGuard, ModalComponent<CustomModalContex
         }
         this.selectedDifficultyValue = this.difficulties[0];
         
-        if (dialog.context.task) {this.task = dialog.context.task; this.selectedDifficultyValue = {id: parseInt(this.task.difficulty), text: this.task.difficulty} };
+        if (this.task.id) {this.selectedDifficultyValue = {id: parseInt(this.task.difficulty), text: this.task.difficulty} };
 
         dialog.setCloseGuard(this);
     }
