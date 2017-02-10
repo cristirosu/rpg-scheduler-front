@@ -109,11 +109,16 @@ export class TasksComponent implements OnInit {
   }
 
   getTasks() {
-    this._taskService.list(this.filters)
-      .subscribe(
-      tasks => { this.tasks = tasks; this.updateCalendar() },
-      error => this.errorMessage = <any>error
-      );
+    if(this.filters.name){
+      this.tasks = this.tasks.filter(item => item.name == this.filters.name);
+    }
+    else{
+      this._taskService.list(this.filters)
+        .subscribe(
+        tasks => { this.tasks = tasks; this.updateCalendar() },
+        error => this.errorMessage = <any>error
+        );
+    }
   }
 
   getTasks2() {

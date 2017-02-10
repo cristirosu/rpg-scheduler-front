@@ -59,24 +59,10 @@
             <!--FILTERS-->
             <div class="col-md-12" *ngIf="showFilters">
                 <div class="row" style="padding-top: 10px;">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label>Name</label>
                             <input class="form-control" placeholder="Enter task name" [(ngModel)]="filters.name" />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Date</label>
-                            <input class="form-control" [(ngModel)]="filters.dueDate" year="2016" month="12" close-on-select="false" ng2-datetime-picker />
-                        </div>
-                    </div>
-                    <div class="col-md-4" *ngIf="categories">
-                        <div class="form-group">
-                            <label>Category</label>
-                            <ng-select [allowClear]="true" [items]="categories" placeholder="No category selected" >
-                            </ng-select>
-                            <p></p>
                         </div>
                     </div>
                 </div>
