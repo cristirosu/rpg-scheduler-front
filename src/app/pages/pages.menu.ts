@@ -19,7 +19,7 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'Friends',
-            icon: 'ion-android-home',
+            icon: 'ion-android-people',
             selected: false,
             expanded: false,
             order: 0
@@ -31,7 +31,7 @@ export const PAGES_MENU = [
         data: { // custom menu declaration
           menu: {
             title: 'Achievements', // menu title
-            icon: 'ion-android-home', // menu icon
+            icon: 'ion-android-bookmark', // menu icon
             pathMatch: 'prefix', // use it if item children not displayed in menu
             selected: false,
             expanded: false,
@@ -110,7 +110,7 @@ export const PAGES_MENU = [
         data: { // custom menu declaration
           menu: {
             title: 'Sync', // menu title
-            icon: 'ion-android-home', // menu icon
+            icon: 'ion-load-a', // menu icon
             pathMatch: 'prefix', // use it if item children not displayed in menu
             selected: false,
             expanded: false,
@@ -123,7 +123,7 @@ export const PAGES_MENU = [
         data: { // custom menu declaration
           menu: {
             title: 'Settings', // menu title
-            icon: 'ion-android-home', // menu icon
+            icon: 'ion-gear-a', // menu icon
             pathMatch: 'prefix', // use it if item children not displayed in menu
             selected: false,
             expanded: false,
