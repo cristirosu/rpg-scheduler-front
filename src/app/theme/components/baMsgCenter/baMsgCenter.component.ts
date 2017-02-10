@@ -59,7 +59,7 @@ export class BaMsgCenter {
               self.notifications.push({picture: user.character.picture, text: greeting.body, time: new Date().getDate()});
               self.toReadNotifications++;
             });
-          },1000);
+          },2000);
 
         },
         error => {
